@@ -48,9 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34652372d46f59b44ae549ab35113b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eatDistance: 0.2
   animator: {fileID: 3761532205857109597}
   agent: {fileID: 2866294548786552210}
-  speed: 1
+  speed: 0.5
 --- !u!195 &2866294548786552210
 NavMeshAgent:
   m_ObjectHideFlags: 0

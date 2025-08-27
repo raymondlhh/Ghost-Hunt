@@ -170,7 +170,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: d2eb870d8a6dee6469665ead0de895cd, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &12070583
 Transform:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12070581}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d607ba0c0320e446ba9d62671d9d7a1, type: 3}
   m_Name: 
@@ -1155,6 +1155,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187772786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510708963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510708965}
+  - component: {fileID: 1510708964}
+  m_Layer: 0
+  m_Name: OrbsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1510708964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510708963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485d4b519e8df8c42aabb13224a12f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfOrbsToSpawn: 5
+  orbPrefab: {fileID: 8851540790889320631, guid: 7cb304e4b4047c6459e702122e3ce412, type: 3}
+  height: 0.7
+  spawnedOrbs: []
+  maxNumberOfTry: 100
+--- !u!4 &1510708965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510708963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.033581458, y: 1.2077873, z: 0.32492074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1521391512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,3 +2070,4 @@ SceneRoots:
   - {fileID: 186701961}
   - {fileID: 12070583}
   - {fileID: 2116525456}
+  - {fileID: 1510708965}

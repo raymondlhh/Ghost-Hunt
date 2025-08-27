@@ -45,7 +45,7 @@ public class GhostSpawner : MonoBehaviour
 
         while(currentTry < spawnTry)
         {
-             bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, new LabelFilter(spawnLabels), out Vector3 pos, out Vector3 norm);
+             bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, LabelFilter.Included(spawnLabels), out Vector3 pos, out Vector3 norm);
 
              if(hasFoundPosition)
             {

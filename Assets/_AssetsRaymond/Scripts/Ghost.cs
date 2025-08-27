@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Ghost : MonoBehaviour
 {
+    public float eatDistance = 0.3f;
     public Animator animator;
     public NavMeshAgent agent;
     public float speed = 1;
@@ -15,7 +16,36 @@ public class Ghost : MonoBehaviour
     {
         
     }
+    public GameObject GetClosestOrb()
+    {
+        GameObject closest = null;
+        float minDistance = Mathf.Infinity;
 
+        List<GameObject> orbs = OrbsSpawner.instance.spawnedOrbs;
+
+        foreach(var item in orbs)
+        {
+            Vector3 ghostPosition = transform.position;
+            ghostPosition.y = 0;
+            Vector3 orbPosition = item.transform.position;
+            orbPosition.y = 0;
+
+            float d = Vector3.Distance(ghostPosition, orbPosition);
+
+            if (d < minDistance)
+            {
+                minDistance = d;
+                closest = item;
+            }
+        }
+
+        if (minDistance < eatDistance)
+        {
+            OrbsSpawner.instance.DestroyOrb(closest);
+        }
+
+        return closest;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,10 +53,14 @@ public class Ghost : MonoBehaviour
         {
             return;
         }
-        Vector3 targetPosition = Camera.main.transform.position;
+        GameObject closest = GetClosestOrb();
 
-        agent.SetDestination(targetPosition);
-        agent.speed = speed;
+        if(closest)
+        {
+            Vector3 targetPosition = closest.transform.position;
+            agent.SetDestination(targetPosition);
+            agent.speed = speed;
+        }
     }
 
     public void Kill()
