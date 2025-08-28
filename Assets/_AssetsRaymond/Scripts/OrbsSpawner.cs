@@ -44,6 +44,7 @@ public class OrbsSpawner : MonoBehaviour
         for (int i = 0; i < numberOfOrbsToSpawn; i++)
         {
             Vector3 randomPosition = Vector3.zero;
+            currentNumberOfTry = 0; // Reset counter for each orb
 
             MRUKRoom room = MRUK.Instance.GetCurrentRoom();
 
@@ -58,8 +59,15 @@ public class OrbsSpawner : MonoBehaviour
                 {
                     break;
                 }
+                
+                currentNumberOfTry++; // Always increment to prevent infinite loop
+            }
 
-                currentNumberOfTry++;
+            // Skip this orb if we couldn't find a valid position
+            if (currentNumberOfTry >= maxNumberOfTry)
+            {
+                Debug.LogWarning($"Could not find valid spawn position for orb {i} after {maxNumberOfTry} attempts");
+                continue;
             }
 
             randomPosition.y = height;
